@@ -44,6 +44,21 @@ body {
     display: none;
 }
 
+.total-wrapper {
+    margin-top: 35px;
+    position: relative;
+}
+
+.total {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.total:before {
+    content: '$';
+}
+
 .line-item {
     position: relative;
     padding: 25px 0;

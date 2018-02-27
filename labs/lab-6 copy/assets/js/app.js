@@ -16,20 +16,24 @@ $('.cart-toggle').click(function() {
 });
 
 function add_to_cart(line_item) {
-    var price = $(line_item).data('price'),
+    var value = $(line_item).data('value'),
+        price = $(line_item).data('price')
         img   = $(line_item).data('img');
         line_item_html = '<div class="line-item"><div class="line-item-img '+ img +'"></div><div class="line-item-price">' + price + '</div></div>';
 
 
     $('.line-items').prepend(line_item_html);
-    console.log('hi')
-    update_total(price);
+    console.log(value);
+    update_total(value);
 }
 
-function update_total(price) {
-    var current_total = Math.abs($('.total').html()),
-        new_total = current_total + price;
-        console.log(new_total);
+function update_total(line_item_value) {
+    var current_value = $('.total').data('value'),
+        new_value = current_value + line_item_value, 
+        new_price = new_value.toLocaleString();
+       
+        console.log(current_value);
 
-    $('.total').html(new_total);
+    $('.total').html(new_price);
+    $('.total').data('value', new_value);
 }

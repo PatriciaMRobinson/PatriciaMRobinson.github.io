@@ -5,7 +5,12 @@ $('.item').click(function(){
         current_value = Math.abs(current_count),    
         new_count   = current_value + 1;
 
-    $('.item-count').html(new_count);
-    $(this).addClass('in-cart');
-}
+        $('.item-count').html(new_count);
+        $(this).addClass('in-cart');
+    }
 });
+
+$('.toggle').click(function() {
+    $('.cart').toggleClass('hide');
+});
+
